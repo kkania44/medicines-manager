@@ -1,3 +1,4 @@
+import { EditPrescriptionDialogComponent } from './edit-prescription-dialog/edit-prescription-dialog.component';
 import { AddPrescriptionDialogComponent } from './add-prescription-dialog/add-prescription-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,11 +12,11 @@ import { Prescription } from './prescription';
 })
 export class PrescriptionsComponent implements OnInit {
   prescritpions: Prescription[] = [
-    { code: '12214', status: 'W trakcie realizacji', description: 'Description of prescription 1' },
-    { code: '46523', status: 'W trakcie realizacji', description: 'Description of prescription 22' },
-    { code: '21421', status: 'Zrealizowana', description: 'Description of prescription 142' },
-    { code: '64573', status: 'Niezrelizowana', description: 'Description of prescription 32' },
-    { code: '03352', status: 'Zrealizowana', description: 'Description of prescription 4' },
+    { code: '12214', status: 'w trakcie realizacji', description: 'Description of prescription 1' },
+    { code: '46523', status: 'w trakcie realizacji', description: 'Description of prescription 22' },
+    { code: '21421', status: 'zrealizowana', description: 'Description of prescription 142' },
+    { code: '64573', status: 'niezrelizowana', description: 'Description of prescription 32' },
+    { code: '03352', status: 'zrealizowana', description: 'Description of prescription 4' },
   ];
   displayedColumns = ['code', 'description', 'status', 'edit', 'delete' ];
 
@@ -33,6 +34,12 @@ export class PrescriptionsComponent implements OnInit {
 
   goToPrescriptions() {
     this.router.navigateByUrl('recepty');
+  }
+
+  edit(prescription: Prescription) {
+    this.dialog.open(EditPrescriptionDialogComponent, { data: prescription,  width: '400px' })
+      .afterClosed()
+      .subscribe();
   }
 
   addPrescription() {

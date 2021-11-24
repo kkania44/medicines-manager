@@ -1,7 +1,8 @@
+import { EditMedicineDialogComponent } from './edit-medicine-dialog/edit-medicine-dialog.component';
 import { AddMedicineDialogComponent } from './add-medicine-dialog/add-medicine-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MedicineDose } from './medicine';
+import { Medicine, MedicineDose } from './medicine';
 import { config } from 'process';
 import { Router } from '@angular/router';
 
@@ -11,13 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./medicines.component.css']
 })
 export class MedicinesComponent implements OnInit {
-  doses: MedicineDose[] = [
-    { name: 'Lek 1', applicationDate: new Date() },
-    { name: 'Lek 2', applicationDate: new Date() },
-    { name: 'Lek 3', applicationDate: new Date() },
-    { name: 'Lek 1', applicationDate: new Date() },
-    { name: 'Lek 2', applicationDate: new Date() },
-    { name: 'Lek 3', applicationDate: new Date() }
+  doses: Medicine[] = [
+    { name: 'Lek 1', startDate: new Date(), endDate: new Date(2021, 12, 4), interval: 4 },
+    { name: 'Lek 2', startDate: new Date(), endDate: new Date(2021, 12, 12), interval: 6 },
+    { name: 'Lek 3', startDate: new Date(), endDate: new Date(2021, 12, 2), interval: 12 },
+    { name: 'Lek 1', startDate: new Date(), endDate: new Date(2021, 12, 4), interval: 4 },
+    { name: 'Lek 2', startDate: new Date(), endDate: new Date(2021, 12, 12), interval: 6 },
+    { name: 'Lek 3', startDate: new Date(), endDate: new Date(2021, 12, 2), interval: 12 }
   ];
   displayedColumns = [ 'name', 'applicationDate', 'edit', 'delete'];
 
@@ -34,6 +35,10 @@ export class MedicinesComponent implements OnInit {
 
   goToPrescriptions() {
     this.router.navigateByUrl('recepty');
+  }
+
+  edit(dose: Medicine) {
+    this.dialog.open(EditMedicineDialogComponent, { data: dose, width: '400px' }).afterClosed().subscribe();
   }
 
   addMedicine() {

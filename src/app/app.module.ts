@@ -20,6 +20,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AddMedicineDialogComponent } from './medicines/add-medicine-dialog/add-medicine-dialog.component';
 import { AddPrescriptionDialogComponent } from './prescriptions/add-prescription-dialog/add-prescription-dialog.component';
+import { EditMedicineDialogComponent } from './medicines/edit-medicine-dialog/edit-medicine-dialog.component';
+import { EditPrescriptionDialogComponent } from './prescriptions/edit-prescription-dialog/edit-prescription-dialog.component';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +35,9 @@ import { AddPrescriptionDialogComponent } from './prescriptions/add-prescription
     RegistrationComponent,
     PrescriptionsComponent,
     AddMedicineDialogComponent,
-    AddPrescriptionDialogComponent
+    AddPrescriptionDialogComponent,
+    EditMedicineDialogComponent,
+    EditPrescriptionDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,10 +52,12 @@ import { AddPrescriptionDialogComponent } from './prescriptions/add-prescription
     CommonModule,
     MatInputModule,
     MatToolbarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatSelectModule
   ],
   providers: [
-    
+    { provide: MAT_DATE_LOCALE, useValue: 'pl-PL' }
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-<h1 matDialogTitle>Dodaj nowy lek</h1>
+<h1 matDialogTitle>Edytuj lek</h1>
 
 <mat-dialog-content>
     <form [formGroup]="form">
@@ -15,7 +15,7 @@
                 <mat-label>
                     Data rozpoczęcia
                 </mat-label>
-                <input matInput type="date" formControlName="startDate">
+                <input matInput type="date" value="startDate" formControlName="startDate">
             </mat-form-field>
         </div>
         <div>

@@ -20,7 +20,7 @@ export class AddMedicineDialogComponent implements OnInit {
       medicine: [],
       startDate: [],
       endDate: [],
-      inteval: []
+      interval: []
     });
   }
 

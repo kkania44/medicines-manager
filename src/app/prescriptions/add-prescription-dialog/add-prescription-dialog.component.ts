@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class AddPrescriptionDialogComponent implements OnInit {
   form: FormGroup;
+  statuses = [ 'w trakcie realizacji', 'niezrealizowana', 'zrealizowana'];
 
   constructor(private fb: FormBuilder) { }
 
