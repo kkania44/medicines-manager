@@ -1,0 +1,44 @@
+<h1 matDialogTitle>Dodaj nowy lek</h1>
+
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Lek
+                </mat-label>
+                <input matInput type="text" formControlName="medicine">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Data rozpoczęcia
+                </mat-label>
+                <input matInput type="text" formControlName="startDate">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Data zakończenia
+                </mat-label>
+                <input matInput type="text" formControlName="endDate">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Interwał
+                </mat-label>
+                <input matInput type="text" formControlName="interval">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button color="accent" matDialogClose>Anuluj</button>
+    <button mat-raised-button color="primary">Zapisz</button>
+    
+</mat-dialog-actions>

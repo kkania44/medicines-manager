@@ -1,0 +1,36 @@
+<h1 matDialogTitle>Dodaj nową receptę</h1>
+
+<mat-dialog-content>
+    <form [formGroup]="form">
+        <div>
+            <mat-form-field>
+                <mat-label>
+                    Kod recepty
+                </mat-label>
+                <input matInput type="text" formControlName="code">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>
+                   Status
+                </mat-label>
+                <input matInput type="text" formControlName="status">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field style="width: 100%;">
+                <mat-label>
+                   Opis
+                </mat-label>
+                <input matInput type="text" formControlName="description">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-raised-button color="accent" matDialogClose>Anuluj</button>
+    <button mat-raised-button color="primary">Zapisz</button>
+    
+</mat-dialog-actions>

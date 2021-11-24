@@ -1,0 +1,48 @@
+<mat-toolbar style="width: 75%; margin: auto;" color="primary" >
+  <span>System zarządzania lekami</span>
+  <button mat-raised-button style="margin-left: 65%; width: 100px;" (click)="goToMedicines()">
+    Leki
+  </button>
+  <button mat-raised-button style="margin-left: 10px; width: 100px;" (click)="goToPrescriptions()">
+    Recepty
+  </button>
+</mat-toolbar>
+<div style="margin: auto; width: 75%; padding-top: 15px;">
+  <mat-card>
+      <mat-card-header>
+          <mat-card-title>Twoje lekarstwa</mat-card-title>
+          <mat-card-subtitle>Sprawdź kiedy powinieneś przyjąć dawkę swoich leków</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <table mat-table [dataSource]="doses" style="width: 100%;">
+              <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef> Lek </th>
+                  <td mat-cell *matCellDef="let dose"> {{dose.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="applicationDate">
+                  <th mat-header-cell *matHeaderCellDef> Czas podania </th>
+                  <td mat-cell *matCellDef="let dose"> {{dose.applicationDate | date: 'short' }} </td>
+                </ng-container>
+                <ng-container matColumnDef="edit">
+                  <th mat-header-cell *matHeaderCellDef> </th>
+                  <td mat-cell *matCellDef="let dose"> 
+                      <button mat-button color="primary">Edytuj</button>
+                  </td>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                  <th mat-header-cell *matHeaderCellDef></th>
+                  <td mat-cell *matCellDef="let dose"> 
+                      <button mat-button color="warn">Usuń</button>
+                  </td>
+                </ng-container>
+                
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+      </mat-card-content>
+      <mat-card-actions align="start">
+          <button mat-raised-button color="primary" (click)="addMedicine()">Dodaj lek</button>
+          
+      </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,53 @@
+<mat-toolbar style="width: 75%; margin: auto;" color="primary" >
+  <span>System zarządzania lekami</span>
+  <button mat-raised-button style="margin-left: 65%; width: 100px;" (click)="goToMedicines()">
+    Leki
+  </button>
+  <button mat-raised-button style="margin-left: 10px; width: 100px;" (click)="goToPrescriptions()">
+    Recepty
+  </button>
+</mat-toolbar>
+
+<div style="margin: auto; width: 75%; padding-top: 15px;">
+<mat-card >
+    <mat-card-header>
+        <mat-card-title>Twoje recepty</mat-card-title>
+        <mat-card-subtitle>Sprawdź listę swoich recept</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <table mat-table [dataSource]="prescritpions" style="width: 100%;">
+            <ng-container matColumnDef="code">
+                <th mat-header-cell *matHeaderCellDef> Kod </th>
+                <td mat-cell *matCellDef="let prescritpion"> {{ prescritpion.code}} </td>
+              </ng-container>
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Opis </th>
+                <td mat-cell *matCellDef="let prescritpion"> {{ prescritpion.description }} </td>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef> Status </th>
+                <td mat-cell *matCellDef="let prescritpion"> {{ prescritpion.status }} </td>
+              </ng-container>
+              <ng-container matColumnDef="edit">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let prescritpion"> 
+                    <button mat-button color="primary">Edytuj</button>
+                </td>
+              </ng-container>
+              <ng-container matColumnDef="delete">
+                <th mat-header-cell *matHeaderCellDef></th>
+                <td mat-cell *matCellDef="let prescritpion"> 
+                    <button mat-button color="warn">Usuń</button>
+                </td>
+              </ng-container>
+              
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+    <mat-card-actions align="start">
+        <button mat-raised-button color="primary" (click)="addPrescription()">Dodaj receptę</button>
+        
+    </mat-card-actions>
+</mat-card>
+</div>
