@@ -1,5 +1,9 @@
+import { Medicine } from './../medicine';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Drug } from 'src/app/medicines-database/drug';
 
 @Component({
   selector: 'app-add-medicine-dialog',
@@ -9,7 +13,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class AddMedicineDialogComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient) { }
 
   ngOnInit(): void {
     this.initForm();
@@ -23,5 +29,6 @@ export class AddMedicineDialogComponent implements OnInit {
       interval: []
     });
   }
+
 
 }

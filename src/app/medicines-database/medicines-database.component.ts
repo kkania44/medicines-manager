@@ -4,6 +4,8 @@ import { Drug } from './drug'
 import { MatDialog } from '@angular/material/dialog';
 import { EditDrugDialogComponent } from './edit-drug-dialog/edit-drug-dialog.component';
 import { AddDrugDialogComponent } from './add-drug-dialog/add-drug-dialog.component';
+import { HttpClient } from '@angular/common/http';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-medicines-database',
@@ -19,10 +21,12 @@ export class MedicinesDatabaseComponent implements OnInit {
 
   constructor(
     private dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
   goToMedicines() {
@@ -34,11 +38,16 @@ export class MedicinesDatabaseComponent implements OnInit {
   }
 
   goToMedicinesDatabase(){
-    this.router.navigateByUrl('wszystkieLekarstwa')
+    this.router.navigateByUrl('wszystkieLekarstwa');
   }
-  
+
+  private getAll() {
+    this.http.get<Drug[]>('http://localhost:8100/medicine').subscribe(data => this.drugs = data);
+  }
+
   edit(drug: Drug) {
-    this.dialog.open(EditDrugDialogComponent, { data: drug, width: '400px' }).afterClosed().subscribe();
+    this.dialog.open(EditDrugDialogComponent, { data: drug, width: '400px' }).afterClosed()
+      .subscribe(() => location.reload());
   }
 
   addMedicine() {

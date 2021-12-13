@@ -1,5 +1,5 @@
 export interface Drug{
-    id: number;
+    id?: number;
     name: string;
     dose: number;
     manufacturer: string;
