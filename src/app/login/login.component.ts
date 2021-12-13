@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    alert('Logowanie');
+    this.router.navigateByUrl('lekarstwa');
   }
 
   goToRegister() {

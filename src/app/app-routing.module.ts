@@ -4,11 +4,17 @@ import { PrescriptionsComponent } from './prescriptions/prescriptions.component'
 import { MedicinesComponent } from './medicines/medicines.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { MedicinesDatabaseComponent } from './medicines-database/medicines-database.component';
 
 
 const routes: Routes = [
-  { path: 'lekarstwa',
+{ 
+  path: 'lekarstwa',
     component: MedicinesComponent
+},
+{
+  path: 'wszystkieLekarstwa',
+  component: MedicinesDatabaseComponent
 },
 {
   path: 'recepty',
