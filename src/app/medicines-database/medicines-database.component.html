@@ -1,0 +1,60 @@
+<mat-toolbar style="width: 75%; margin: auto;" color="primary" >
+    <span>System zarządzania lekami</span>
+    <span class="example-spacer"></span>
+    <button mat-raised-button style="margin-left: 10px;" (click)="goToMedicines()">
+      Moje leki
+    </button>
+    <button mat-raised-button style="margin-left: 10px;" (click)="goToPrescriptions()">
+      Recepty
+    </button>
+    <button mat-raised-button style="margin-left: 10px;" (click)="goToMedicinesDatabase()">
+      Baza leków
+    </button>
+  </mat-toolbar>
+  <div style="margin: auto; width: 75%; padding-top: 15px;">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Baza leków</mat-card-title>
+            <mat-card-subtitle>Zobacz leki dostępne w bazie</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <table mat-table [dataSource]="drugs" style="width: 100%;">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Lek </th>
+                    <td mat-cell *matCellDef="let drug"> {{drug.name}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="dose"> 
+                    <th mat-header-cell *matHeaderCellDef> Ilość [mg/ml] </th>
+                    <td mat-cell *matCellDef="let drug"> {{drug.dose}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="type">
+                    <th mat-header-cell *matHeaderCellDef> Typ </th>
+                    <td mat-cell *matCellDef="let drug"> {{drug.type}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="manufacturer">
+                    <th mat-header-cell *matHeaderCellDef> Producent </th>
+                    <td mat-cell *matCellDef="let drug"> {{drug.manufacturer}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="edit">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let drug"> 
+                        <button mat-button color="primary">Edytuj</button> <!--(click)="edit(dose)">Edytuj-->
+                    </td>
+                  </ng-container>
+                  <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let drug"> 
+                        <button mat-button color="warn">Usuń</button>
+                    </td>
+                  </ng-container>
+                  
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </mat-card-content>
+        <mat-card-actions align="start">
+            <button mat-raised-button color="primary">Dodaj lek</button> <!--(click)="addMedicine()"-->
+            
+        </mat-card-actions>
+    </mat-card>
+  </div>

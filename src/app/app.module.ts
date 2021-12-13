@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { LOCALE_ID, NgModule } from '@angular/core';
 
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MedicinesComponent } from './medicines/medicines.component';
@@ -25,6 +26,7 @@ import { EditPrescriptionDialogComponent } from './prescriptions/edit-prescripti
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { MedicinesDatabaseComponent } from './medicines-database/medicines-database.component';
 
 
 @NgModule({
@@ -37,7 +39,8 @@ import {MatSelectModule} from '@angular/material/select';
     AddMedicineDialogComponent,
     AddPrescriptionDialogComponent,
     EditMedicineDialogComponent,
-    EditPrescriptionDialogComponent
+    EditPrescriptionDialogComponent,
+    MedicinesDatabaseComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatToolbarModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    HttpClientModule
   ],
   providers: [
     { provide: MAT_DATE_LOCALE, useValue: 'pl-PL' }

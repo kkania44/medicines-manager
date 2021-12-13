@@ -1,10 +1,14 @@
 <mat-toolbar style="width: 75%; margin: auto;" color="primary" >
   <span>System zarządzania lekami</span>
-  <button mat-raised-button style="margin-left: 65%; width: 100px;" (click)="goToMedicines()">
-    Leki
+  <span class="example-spacer"></span>
+  <button mat-raised-button style="margin-left: 10px;" (click)="goToMedicines()">
+    Moje leki
   </button>
-  <button mat-raised-button style="margin-left: 10px; width: 100px;" (click)="goToPrescriptions()">
+  <button mat-raised-button style="margin-left: 10px;" (click)="goToPrescriptions()">
     Recepty
+  </button>
+  <button mat-raised-button style="margin-left: 10px;" (click)="goToMedicineBase()">
+    Baza leków
   </button>
 </mat-toolbar>
 
@@ -37,7 +41,7 @@
               <ng-container matColumnDef="delete">
                 <th mat-header-cell *matHeaderCellDef></th>
                 <td mat-cell *matCellDef="let prescritpion"> 
-                    <button mat-button color="warn">Usuń</button>
+                    <button mat-button color="warn" (click)="deletePrescription(prescritpion)">Usuń</button>
                 </td>
               </ng-container>
               

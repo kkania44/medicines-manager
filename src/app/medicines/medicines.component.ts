@@ -37,6 +37,10 @@ export class MedicinesComponent implements OnInit {
     this.router.navigateByUrl('recepty');
   }
 
+  goToMedicinesDatabase(){
+    this.router.navigateByUrl('wszystkieLekarstwa')
+  }
+
   edit(dose: Medicine) {
     this.dialog.open(EditMedicineDialogComponent, { data: dose, width: '400px' }).afterClosed().subscribe();
   }

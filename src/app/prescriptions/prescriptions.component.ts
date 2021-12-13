@@ -36,6 +36,10 @@ export class PrescriptionsComponent implements OnInit {
     this.router.navigateByUrl('recepty');
   }
 
+  goToMedicineBase()  {
+    this.router.navigateByUrl('bazaLekow')
+  }
+
   edit(prescription: Prescription) {
     this.dialog.open(EditPrescriptionDialogComponent, { data: prescription,  width: '400px' })
       .afterClosed()
@@ -46,6 +50,12 @@ export class PrescriptionsComponent implements OnInit {
     this.dialog.open(AddPrescriptionDialogComponent, { disableClose: true, width: '400px'} )
       .afterClosed()
       .subscribe();
+  }
+
+  deletePrescription(prescription: Prescription) {
+    if(confirm("Are you sure to delete "+ prescription.code)) {
+      console.log("Implement delete functionality here");
+    }
   }
 
 }
