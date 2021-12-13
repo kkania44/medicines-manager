@@ -27,6 +27,8 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { MedicinesDatabaseComponent } from './medicines-database/medicines-database.component';
+import { AddDrugDialogComponent } from './medicines-database/add-drug-dialog/add-drug-dialog.component';
+import { EditDrugDialogComponent } from './medicines-database/edit-drug-dialog/edit-drug-dialog.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { MedicinesDatabaseComponent } from './medicines-database/medicines-datab
     AddPrescriptionDialogComponent,
     EditMedicineDialogComponent,
     EditPrescriptionDialogComponent,
-    MedicinesDatabaseComponent
+    MedicinesDatabaseComponent,
+    AddDrugDialogComponent,
+    EditDrugDialogComponent
   ],
   imports: [
     BrowserModule,

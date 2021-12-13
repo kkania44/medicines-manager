@@ -49,4 +49,10 @@ export class MedicinesComponent implements OnInit {
     this.dialog.open(AddMedicineDialogComponent, { width: '400px' } ).afterClosed().subscribe();
   }
 
+  deleteMedicine(medicine: Medicine) {
+    if(confirm("Are you sure to delete "+ medicine.name)) {
+      console.log("Implement delete functionality here");
+    }
+  }
+
 }
