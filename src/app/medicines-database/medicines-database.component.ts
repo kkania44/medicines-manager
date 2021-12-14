@@ -1,3 +1,4 @@
+import { DeleteDialogComponent } from './../delete-dialog/delete-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Drug } from './drug'
@@ -51,13 +52,15 @@ export class MedicinesDatabaseComponent implements OnInit {
   }
 
   addMedicine() {
-    this.dialog.open(AddDrugDialogComponent, { width: '400px' } ).afterClosed().subscribe();
+    this.dialog.open(AddDrugDialogComponent, { width: '400px' } ).afterClosed()
+      .subscribe(() => location.reload());
   }
 
   deleteMedicine(drug: Drug) {
-    if(confirm("Are you sure to delete "+ drug.name)) {
-      console.log("Implement delete functionality here");
-    }
+    this.dialog.open(DeleteDialogComponent, { data: 'lek' }).afterClosed().subscribe(() => location.reload());
+    // if(confirm("Are you sure to delete "+ drug.name)) {
+    //   console.log("Implement delete functionality here");
+    // }
   }
 
 }

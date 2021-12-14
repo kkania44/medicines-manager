@@ -29,6 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { MedicinesDatabaseComponent } from './medicines-database/medicines-database.component';
 import { AddDrugDialogComponent } from './medicines-database/add-drug-dialog/add-drug-dialog.component';
 import { EditDrugDialogComponent } from './medicines-database/edit-drug-dialog/edit-drug-dialog.component';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { EditDrugDialogComponent } from './medicines-database/edit-drug-dialog/e
     EditPrescriptionDialogComponent,
     MedicinesDatabaseComponent,
     AddDrugDialogComponent,
-    EditDrugDialogComponent
+    EditDrugDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,

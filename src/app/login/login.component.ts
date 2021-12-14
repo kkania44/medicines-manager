@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     params = params.append('password', this.form.get('password').value);
     this.http.get('http://localhost:8100/user/login', { params: params })
       .subscribe((data: User) => {
+        sessionStorage.setItem('userId', data.id + '');
         this.dataHolder.saveId(data.id);
         this.router.navigateByUrl('/lekarstwa');
       });

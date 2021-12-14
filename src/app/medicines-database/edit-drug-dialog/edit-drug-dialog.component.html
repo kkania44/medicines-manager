@@ -7,31 +7,31 @@
                 <mat-label>
                     Lek
                 </mat-label>
-                <input matInput type="text" formControlName="medicine">
+                <input matInput type="text" formControlName="name">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>
-                    Data rozpoczęcia
+                   Ilość
                 </mat-label>
-                <input matInput type="date" value="startDate" formControlName="startDate">
+                <input matInput type="number" formControlName="dose">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>
-                    Data zakończenia
+                    Typ
                 </mat-label>
-                <input matInput type="date" formControlName="endDate">
+                <input matInput type="type" formControlName="type">
             </mat-form-field>
         </div>
         <div>
             <mat-form-field>
                 <mat-label>
-                    Interwał
+                    Producent
                 </mat-label>
-                <input matInput type="text" formControlName="interval">
+                <input matInput type="text" formControlName="manufacturer">
             </mat-form-field>
         </div>
     </form>
@@ -39,6 +39,6 @@
 
 <mat-dialog-actions>
     <button mat-raised-button color="accent" matDialogClose>Anuluj</button>
-    <button mat-raised-button color="primary">Zapisz</button>
+    <button mat-raised-button color="primary" (click)="updateMedicine()">Zapisz</button>
     
 </mat-dialog-actions>

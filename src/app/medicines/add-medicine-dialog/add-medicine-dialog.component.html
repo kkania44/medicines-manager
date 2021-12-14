@@ -7,7 +7,11 @@
                 <mat-label>
                     Lek
                 </mat-label>
-                <input matInput type="text" formControlName="medicine">
+                <mat-select formControlName="medicine_id" >
+                    <mat-option *ngFor="let drug of drugs" [value]="drug.id">
+                      {{drug.name}}
+                    </mat-option>
+                  </mat-select>
             </mat-form-field>
         </div>
         <div>
@@ -21,9 +25,9 @@
         <div>
             <mat-form-field>
                 <mat-label>
-                    Data zakończenia
+                    Liczba dawek
                 </mat-label>
-                <input matInput type="date" formControlName="endDate">
+                <input matInput formControlName="numberOfDosage">
             </mat-form-field>
         </div>
         <div>
@@ -31,7 +35,7 @@
                 <mat-label>
                     Interwał
                 </mat-label>
-                <input matInput type="text" formControlName="interval">
+                <input matInput type="text" formControlName="doseInterval">
             </mat-form-field>
         </div>
     </form>
@@ -39,6 +43,6 @@
 
 <mat-dialog-actions>
     <button mat-raised-button color="accent" matDialogClose>Anuluj</button>
-    <button mat-raised-button color="primary">Zapisz</button>
+    <button mat-raised-button color="primary" (click)="add()">Zapisz</button>
     
 </mat-dialog-actions>

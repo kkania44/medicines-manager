@@ -1,0 +1,11 @@
+<h1 matDialogTitle>Potwierdź usunięcie</h1>
+
+<mat-dialog-content>
+    Czy na pewno chcesz usunąć {{ data }}?
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button matDialogClose>Anuluj</button>
+    <button mat-button (click)="confirm()">Tak</button>
+    
+</mat-dialog-actions>

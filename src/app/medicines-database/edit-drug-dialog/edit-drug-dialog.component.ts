@@ -1,7 +1,8 @@
 import { Drug } from './../drug';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-drug-dialog',
@@ -13,6 +14,8 @@ export class EditDrugDialogComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private http: HttpClient,
+    private dialog: MatDialogRef<EditDrugDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Drug
     ) { }
 
@@ -22,11 +25,18 @@ export class EditDrugDialogComponent implements OnInit {
 
   initForm() {
     this.form = this.fb.group({
-      medicine: [ this.data.name ],
-      startDate: [ this.data.dose ],
-      endDate: [ this.data.type ],
-      interval: [ this.data.manufacturer ]
+      id: [ this.data.id ],
+      name: [ this.data.name ],
+      dose: [ this.data.dose ],
+      type: [ this.data.type ],
+      manufacturer: [ this.data.manufacturer ]
     });
+  }
+
+  updateMedicine() {
+    const medicine = this.form.value;
+    this.http.patch('http://localhost:8100/medicine', medicine)
+      .subscribe(() => this.dialog.close());
   }
 
 }
